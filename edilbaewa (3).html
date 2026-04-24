@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Регина Эдильбаева — Косметолог · Новый Уренгой</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:      #FDFAF7;
+  --bg2:     #F7F2EC;
+  --blush:   #E8C4B4;
+  --blush2:  #D4A898;
+  --rose:    #C9967E;
+  --rosedark:#A87560;
+  --cream:   #F2E8DF;
+  --text:    #3A2820;
+  --text2:   #6B4E42;
+  --muted:   #A08070;
+  --line:    rgba(58,40,32,0.10);
+  --line2:   rgba(58,40,32,0.06);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+
+/* ─── soft petal shapes in background ─── */
+body::after{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 50% at 95% 10%, rgba(232,196,180,.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 5%  90%, rgba(232,196,180,.14) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(242,232,223,.22) 0%, transparent 70%);
+}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  padding:18px 36px;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(253,250,247,.88);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line2);
+}
+.nav-logo{
+  font-family:'Great Vibes',cursive;
+  font-size:1.9rem;color:var(--rose);letter-spacing:.5px;line-height:1;
+}
+.nav-links{display:none;gap:32px;list-style:none;}
+.nav-links a{
+  text-decoration:none;color:var(--muted);
+  font-size:.75rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;
+  transition:color .25s;
+}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{
+  background:var(--rose);color:#fff;border:none;
+  padding:10px 24px;border-radius:50px;
+  font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  cursor:pointer;transition:all .3s;-webkit-appearance:none;
+}
+.nav-cta:hover{background:var(--rosedark);transform:translateY(-1px);}
+
+/* ─── HERO ─── */
+.hero{
+  min-height:100svh;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;
+  padding:110px 28px 80px;
+  position:relative;z-index:1;
+  overflow:hidden;
+}
+/* soft floating circles */
+.hero-circle{
+  position:absolute;border-radius:50%;pointer-events:none;
+}
+.hc1{width:420px;height:420px;background:radial-gradient(circle,rgba(232,196,180,.28) 0%,transparent 65%);top:-60px;right:-100px;animation:pulse1 7s ease-in-out infinite;}
+.hc2{width:320px;height:320px;background:radial-gradient(circle,rgba(232,196,180,.2) 0%,transparent 65%);bottom:-50px;left:-80px;animation:pulse2 9s ease-in-out infinite;}
+.hc3{width:200px;height:200px;background:radial-gradient(circle,rgba(242,232,223,.4) 0%,transparent 65%);top:30%;left:5%;animation:pulse1 11s ease-in-out infinite 2s;}
+@keyframes pulse1{0%,100%{transform:scale(1);}50%{transform:scale(1.08) translate(12px,-8px);}}
+@keyframes pulse2{0%,100%{transform:scale(1);}50%{transform:scale(1.06) translate(-10px,12px);}}
+
+.hero-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(232,196,180,.25);
+  border:1px solid rgba(201,150,126,.2);
+  padding:7px 20px;border-radius:50px;
+  font-size:.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--rose);
+  margin-bottom:36px;
+  animation:fadeUp .7s ease both;
+}
+.hero-script{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(3.6rem,14vw,7rem);
+  color:var(--rose);line-height:1.1;margin-bottom:10px;
+  animation:fadeUp .75s .1s ease both;
+}
+.hero-h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.5rem,6vw,3rem);
+  font-weight:300;color:var(--text);line-height:1.25;letter-spacing:-.3px;
+  margin-bottom:28px;
+  animation:fadeUp .75s .18s ease both;
+}
+.hero-h1 em{font-style:italic;color:var(--rose);}
+.hero-line{
+  width:50px;height:1px;background:var(--blush);margin:0 auto 28px;
+  animation:fadeUp .7s .24s ease both;
+}
+.hero-sub{
+  font-size:.92rem;font-weight:300;color:var(--muted);line-height:1.85;
+  max-width:380px;margin:0 auto 44px;
+  animation:fadeUp .7s .3s ease both;
+}
+.hero-btns{
+  display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
+  animation:fadeUp .7s .38s ease both;
+}
+.btn-fill{
+  background:var(--rose);color:#fff;border:none;
+  padding:15px 36px;border-radius:50px;
+  font-family:'Manrope',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;transition:all .3s;-webkit-appearance:none;
+  box-shadow:0 8px 28px rgba(201,150,126,.3);
+}
+.btn-fill:hover{background:var(--rosedark);transform:translateY(-2px);box-shadow:0 14px 36px rgba(201,150,126,.35);}
+.btn-soft{
+  background:rgba(232,196,180,.2);color:var(--text2);
+  border:1.5px solid rgba(201,150,126,.3);
+  padding:14px 32px;border-radius:50px;
+  font-family:'Manrope',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  cursor:pointer;transition:all .3s;text-decoration:none;display:inline-block;-webkit-appearance:none;
+}
+.btn-soft:hover{background:rgba(232,196,180,.38);transform:translateY(-2px);}
+
+/* hero pills */
+.hero-pills{
+  display:flex;gap:8px;justify-content:center;flex-wrap:wrap;
+  margin-top:48px;animation:fadeUp .7s .46s ease both;
+}
+.hero-pill{
+  background:#fff;border:1px solid var(--line);
+  padding:6px 16px;border-radius:50px;
+  font-size:.72rem;font-weight:500;color:var(--muted);letter-spacing:.3px;
+  box-shadow:0 2px 10px rgba(58,40,32,.04);
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+/* ─── SECTIONS ─── */
+.sec{position:relative;z-index:1;padding:88px 28px;border-top:1px solid var(--line2);}
+.sec.alt{background:var(--bg2);}
+.container{max-width:900px;margin:0 auto;}
+.sec-script{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(2.2rem,8vw,4rem);
+  color:var(--blush2);margin-bottom:4px;display:block;
+}
+.sec-h{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.8rem,5vw,2.8rem);font-weight:400;
+  color:var(--text);margin-bottom:12px;line-height:1.15;letter-spacing:-.2px;
+}
+.sec-p{
+  font-size:.88rem;font-weight:300;color:var(--muted);
+  line-height:1.85;max-width:440px;margin-bottom:48px;
+}
+.sec-center{text-align:center;}
+.sec-center .sec-p{margin:0 auto 48px;}
+
+/* ─── SERVICES ─── */
+.svc-list{display:flex;flex-direction:column;}
+.svc-row{
+  display:grid;grid-template-columns:36px 1fr auto;
+  align-items:center;gap:16px;
+  padding:22px 0;border-bottom:1px solid var(--line2);
+  transition:all .22s;
+}
+.svc-row:last-child{border-bottom:none;}
+.svc-row:hover{padding-left:8px;}
+.svc-n{
+  font-family:'Great Vibes',cursive;font-size:1.7rem;
+  color:var(--blush);line-height:1;
+}
+.svc-info .svc-nm{font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:3px;}
+.svc-info .svc-ds{font-size:.78rem;font-weight:300;color:var(--muted);line-height:1.5;}
+.svc-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.svc-price{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:var(--text);white-space:nowrap;}
+.svc-dur{font-size:.66rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--muted);}
+.svc-bk{
+  background:transparent;color:var(--rose);
+  border:1.5px solid rgba(201,150,126,.4);
+  padding:7px 16px;border-radius:50px;
+  font-family:'Manrope',sans-serif;font-size:.66rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  cursor:pointer;transition:all .22s;margin-top:6px;white-space:nowrap;-webkit-appearance:none;
+}
+.svc-bk:hover{background:var(--rose);color:#fff;border-color:var(--rose);}
+
+/* ─── CAROUSEL ─── */
+.carousel-outer{overflow:hidden;border-radius:20px;box-shadow:0 8px 40px rgba(58,40,32,.07);}
+.carousel-track{display:flex;transition:transform .48s cubic-bezier(.25,.8,.25,1);}
+.ba-slide{
+  min-width:100%;background:#fff;
+  border:1px solid var(--line2);border-radius:20px;overflow:hidden;
+}
+.ba-imgs{display:grid;grid-template-columns:1fr 1fr;height:240px;gap:2px;}
+.ba-half{
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;
+  position:relative;font-size:.66rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);
+}
+.ba-half.before{background:var(--bg2);}
+.ba-half.after{background:rgba(232,196,180,.18);}
+.ba-half .btag{
+  position:absolute;bottom:12px;left:12px;
+  font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--rose);background:rgba(255,255,255,.85);backdrop-filter:blur(4px);
+  padding:3px 10px;border-radius:50px;border:1px solid rgba(201,150,126,.25);
+}
+.ba-info{padding:20px 24px;}
+.ba-proc{
+  font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;
+  color:var(--text);margin-bottom:5px;
+}
+.ba-desc{font-size:.8rem;font-weight:300;color:var(--muted);}
+.car-controls{display:flex;align-items:center;justify-content:space-between;margin-top:18px;}
+.car-dots{display:flex;gap:7px;align-items:center;}
+.car-dot{width:7px;height:7px;border-radius:50%;background:var(--blush);opacity:.4;transition:all .3s;cursor:pointer;}
+.car-dot.active{opacity:1;width:22px;border-radius:4px;}
+.car-arrows{display:flex;gap:8px;}
+.car-arrow{
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(232,196,180,.2);border:1.5px solid rgba(201,150,126,.25);
+  color:var(--rose);cursor:pointer;font-size:.9rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .22s;-webkit-appearance:none;
+}
+.car-arrow:hover{background:var(--rose);color:#fff;border-color:var(--rose);}
+
+/* ─── REVIEWS ─── */
+.rev-wrap{display:flex;flex-direction:column;gap:0;}
+.rev-card{
+  padding:28px 0;border-bottom:1px solid var(--line2);
+  display:grid;grid-template-columns:44px 1fr;gap:18px;align-items:start;
+}
+.rev-ava{
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(232,196,180,.35);border:1.5px solid rgba(201,150,126,.25);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Great Vibes',cursive;font-size:1.4rem;color:var(--rose);
+  flex-shrink:0;
+}
+.rev-stars{color:var(--blush2);font-size:.82rem;letter-spacing:3px;margin-bottom:8px;}
+.rev-text{font-size:.86rem;font-weight:300;color:var(--text2);line-height:1.78;margin-bottom:10px;font-style:italic;}
+.rev-name{font-size:.66rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
+
+/* ─── FAQ ─── */
+.faq-item{border-bottom:1px solid var(--line2);}
+.faq-q{
+  width:100%;background:none;border:none;padding:20px 0;
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:'Manrope',sans-serif;font-size:.88rem;font-weight:500;
+  color:var(--text);cursor:pointer;text-align:left;gap:16px;-webkit-appearance:none;
+}
+.faq-ic{
+  width:28px;height:28px;border-radius:50%;
+  background:rgba(232,196,180,.3);border:1.5px solid rgba(201,150,126,.25);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;transition:all .3s;color:var(--rose);
+}
+.faq-item.open .faq-ic{background:var(--rose);color:#fff;border-color:var(--rose);transform:rotate(45deg);}
+.faq-ans{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.faq-ans-inner{padding-bottom:20px;font-size:.84rem;font-weight:300;color:var(--muted);line-height:1.8;}
+
+/* ─── FOOTER ─── */
+footer{
+  position:relative;z-index:1;
+  background:var(--cream);border-top:1px solid var(--line);
+  padding:60px 28px 40px;text-align:center;
+}
+.f-logo{font-family:'Great Vibes',cursive;font-size:2.8rem;color:var(--rose);margin-bottom:4px;line-height:1.1;}
+.f-sub{font-size:.66rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.f-city{font-size:.78rem;color:var(--muted);margin-bottom:32px;}
+.f-links{display:flex;gap:22px;justify-content:center;list-style:none;margin-bottom:36px;flex-wrap:wrap;}
+.f-links a{text-decoration:none;font-size:.72rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);transition:color .2s;padding:4px;}
+.f-links a:hover{color:var(--rose);}
+.f-bottom{border-top:1px solid var(--line);padding-top:20px;font-size:.68rem;color:var(--muted);opacity:.6;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+.f-admin-btn{cursor:pointer;padding:4px;transition:opacity .2s;}
+.f-admin-btn:hover{opacity:1;}
+
+/* ─── ADMIN FAB ─── */
+.afab{
+  position:fixed;bottom:26px;right:22px;z-index:600;
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(232,196,180,.6);backdrop-filter:blur(10px);
+  border:1.5px solid rgba(201,150,126,.35);
+  color:var(--rose);font-size:.95rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 18px rgba(201,150,126,.2);transition:all .22s;-webkit-appearance:none;
+}
+.afab:hover{background:var(--rose);color:#fff;}
+
+/* ─── BOOKING SHEET ─── */
+.book-ov{
+  position:fixed;inset:0;z-index:500;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  pointer-events:none;opacity:0;transition:opacity .3s ease;
+}
+.book-ov.open{pointer-events:all;opacity:1;}
+.book-bd{position:absolute;inset:0;background:rgba(58,40,32,.28);backdrop-filter:blur(6px);}
+.book-sheet{
+  position:relative;z-index:1;
+  background:#FDFAF7;border-top:1px solid var(--line);
+  max-height:92svh;display:flex;flex-direction:column;
+  transform:translateY(100%);transition:transform .42s cubic-bezier(.16,1,.3,1);
+  border-radius:24px 24px 0 0;
+  box-shadow:0 -8px 50px rgba(58,40,32,.1);
+}
+.book-ov.open .book-sheet{transform:translateY(0);}
+.book-handle{width:36px;height:4px;background:var(--blush);opacity:.5;border-radius:2px;margin:12px auto 0;}
+.book-head{
+  padding:18px 26px 16px;display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px solid var(--line2);flex-shrink:0;
+}
+.book-title{font-family:'Great Vibes',cursive;font-size:1.7rem;color:var(--rose);}
+.book-close{
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(232,196,180,.25);border:1.5px solid var(--line);
+  color:var(--muted);cursor:pointer;font-size:1.1rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;-webkit-appearance:none;
+}
+.book-close:hover{background:var(--rose);color:#fff;border-color:var(--rose);}
+.book-body{flex:1;overflow-y:auto;padding:22px 26px 40px;-webkit-overflow-scrolling:touch;}
+
+/* steps */
+.steps-bar{display:flex;gap:5px;margin-bottom:28px;align-items:center;}
+.sdot{
+  width:28px;height:28px;border-radius:50%;
+  background:rgba(232,196,180,.3);border:1.5px solid var(--line);
+  color:var(--muted);display:flex;align-items:center;justify-content:center;
+  font-size:.72rem;font-weight:700;flex-shrink:0;transition:all .3s;
+}
+.sdot.active{background:var(--rose);color:#fff;border-color:var(--rose);}
+.sdot.done{background:var(--blush);color:#fff;border-color:var(--blush);}
+.sline{flex:1;height:2px;background:var(--line);transition:background .3s;border-radius:2px;}
+.sline.done{background:var(--blush);}
+.bstep{display:none;}
+.bstep.active{display:block;}
+.bstep-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--text);margin-bottom:18px;}
+
+/* opts */
+.svc-opts{display:flex;flex-direction:column;gap:8px;}
+.svc-opt{
+  background:#fff;border:1.5px solid var(--line);
+  border-radius:14px;padding:13px 16px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:all .2s;gap:8px;
+  box-shadow:0 2px 10px rgba(58,40,32,.04);
+}
+.svc-opt:hover{border-color:rgba(201,150,126,.5);}
+.svc-opt.sel{border-color:var(--rose);background:rgba(232,196,180,.1);}
+.svc-opt-name{font-size:.88rem;font-weight:600;color:var(--text);}
+.svc-opt-sub{font-size:.72rem;color:var(--muted);margin-top:2px;}
+.svc-opt-price{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--rose);flex-shrink:0;}
+
+/* cal */
+.cal-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.cal-nav strong{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--text);}
+.cal-nb{
+  width:30px;height:30px;border-radius:50%;
+  background:rgba(232,196,180,.25);border:1.5px solid var(--line);
+  color:var(--muted);cursor:pointer;font-size:.85rem;transition:all .2s;-webkit-appearance:none;
+}
+.cal-nb:hover{background:var(--rose);color:#fff;border-color:var(--rose);}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.cal-hd{text-align:center;font-size:.62rem;font-weight:600;letter-spacing:.8px;color:var(--muted);opacity:.6;padding:6px 0;text-transform:uppercase;}
+.cal-d{
+  aspect-ratio:1;display:flex;align-items:center;justify-content:center;
+  border-radius:50%;font-size:.8rem;font-weight:500;color:var(--text2);
+  cursor:pointer;transition:all .2s;
+}
+.cal-d:hover:not(.empty):not(.past){background:rgba(232,196,180,.35);}
+.cal-d.sel{background:var(--rose);color:#fff;}
+.cal-d.today{outline:2px solid var(--blush);outline-offset:1px;}
+.cal-d.empty{cursor:default;}
+.cal-d.past{opacity:.2;cursor:not-allowed;pointer-events:none;}
+
+/* time */
+.time-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:10px;}
+.tslot{
+  background:#fff;border:1.5px solid var(--line);border-radius:10px;
+  padding:9px 4px;text-align:center;cursor:pointer;
+  font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:500;color:var(--text2);
+  transition:all .2s;-webkit-appearance:none;
+}
+.tslot:hover{border-color:rgba(201,150,126,.5);color:var(--rose);}
+.tslot.sel{background:var(--rose);color:#fff;border-color:var(--rose);}
+.tslot.blocked{opacity:.18;cursor:not-allowed;pointer-events:none;}
+
+/* confirm */
+.confirm-box{background:rgba(232,196,180,.1);border:1.5px solid rgba(201,150,126,.2);border-radius:18px;padding:28px 22px;text-align:center;}
+.confirm-script{font-family:'Great Vibes',cursive;font-size:2.2rem;color:var(--rose);margin-bottom:6px;}
+.confirm-sub{font-size:.82rem;font-weight:300;color:var(--muted);margin-bottom:22px;}
+.bsum{background:#fff;border-radius:12px;padding:16px;margin-bottom:20px;text-align:left;border:1px solid var(--line);}
+.sum-row{display:flex;justify-content:space-between;padding:5px 0;font-size:.84rem;border-bottom:1px solid var(--line2);}
+.sum-row:last-child{border-bottom:none;}
+.sum-row span:first-child{color:var(--muted);font-weight:300;}
+.sum-row span:last-child{color:var(--text);font-weight:600;}
+.tg-btn{
+  display:inline-flex;align-items:center;gap:9px;justify-content:center;width:100%;
+  background:#229ED9;color:#fff;padding:14px 28px;border-radius:50px;
+  text-decoration:none;font-family:'Manrope',sans-serif;
+  font-size:.74rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  transition:all .3s;border:none;cursor:pointer;-webkit-appearance:none;
+}
+.tg-btn:hover{background:#1a8fc4;transform:translateY(-1px);}
+.bnav{display:flex;gap:8px;margin-top:18px;}
+.btn-bk{
+  background:rgba(232,196,180,.2);color:var(--muted);
+  border:1.5px solid var(--line);padding:11px 18px;border-radius:50px;
+  font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  cursor:pointer;transition:all .2s;white-space:nowrap;-webkit-appearance:none;
+}
+.btn-bk:hover{color:var(--text);}
+.btn-nx{
+  background:var(--rose);color:#fff;border:none;padding:11px 18px;border-radius:50px;
+  font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;transition:all .2s;flex:1;-webkit-appearance:none;
+}
+.btn-nx:hover:not(:disabled){background:var(--rosedark);}
+.btn-nx:disabled{opacity:.28;cursor:not-allowed;}
+
+/* ─── ADMIN ─── */
+.adm-ov{position:fixed;inset:0;background:rgba(58,40,32,.3);backdrop-filter:blur(8px);z-index:700;display:none;align-items:flex-end;justify-content:center;}
+.adm-ov.open{display:flex;}
+.adm-panel{
+  background:var(--bg);border-top:1px solid var(--line);border-radius:24px 24px 0 0;
+  width:100%;max-height:90svh;overflow:hidden;display:flex;flex-direction:column;
+  box-shadow:0 -4px 40px rgba(58,40,32,.08);
+}
+.adm-handle{width:36px;height:4px;background:var(--blush);opacity:.45;border-radius:2px;margin:12px auto 0;}
+.adm-hd{padding:16px 26px 14px;border-bottom:1px solid var(--line2);display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}
+.adm-hd-t{font-family:'Great Vibes',cursive;font-size:1.5rem;color:var(--rose);}
+.adm-cl{background:none;border:1.5px solid var(--line);border-radius:50%;font-size:1.1rem;cursor:pointer;color:var(--muted);width:30px;height:30px;display:flex;align-items:center;justify-content:center;transition:all .2s;-webkit-appearance:none;}
+.adm-cl:hover{background:var(--rose);color:#fff;border-color:var(--rose);}
+.adm-body{overflow-y:auto;padding:18px 26px 36px;flex:1;-webkit-overflow-scrolling:touch;}
+.adm-tabs{display:flex;gap:0;margin-bottom:18px;border-bottom:1px solid var(--line2);}
+.adm-tab{padding:9px 18px;background:none;border:none;border-bottom:2px solid transparent;font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all .2s;margin-bottom:-1px;-webkit-appearance:none;}
+.adm-tab.active{color:var(--rose);border-bottom-color:var(--rose);}
+.adm-form{background:rgba(232,196,180,.1);border:1px solid rgba(201,150,126,.2);border-radius:14px;padding:16px;margin-bottom:14px;}
+.adm-ft{font-size:.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--rose);margin-bottom:13px;}
+.fg{margin-bottom:9px;}
+.fl{display:block;font-size:.68rem;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.fi{width:100%;padding:9px 12px;border:1.5px solid var(--line);border-radius:8px;font-family:'Manrope',sans-serif;font-size:.85rem;color:var(--text);background:#fff;outline:none;transition:border .2s;-webkit-appearance:none;}
+.fi:focus{border-color:var(--rose);}
+.fta{resize:vertical;min-height:68px;}
+.ab{background:var(--rose);color:#fff;border:none;padding:9px 18px;border-radius:8px;font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .2s;-webkit-appearance:none;}
+.ab:hover{background:var(--rosedark);}
+.ab.danger{background:rgba(200,80,80,.08);color:#c85050;border:1.5px solid rgba(200,80,80,.2);}
+.ab.danger:hover{background:rgba(200,80,80,.8);color:#fff;}
+.adm-item{background:#fff;border:1px solid var(--line2);border-radius:10px;padding:12px 14px;margin-bottom:6px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;box-shadow:0 1px 6px rgba(58,40,32,.04);}
+.ai-nm{font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:2px;}
+.ai-sb{font-size:.72rem;color:var(--muted);}
+.ai-acts{display:flex;gap:5px;flex-shrink:0;}
+.adm-login{padding:36px 26px;text-align:center;}
+.adm-login h3{font-family:'Great Vibes',cursive;font-size:2rem;color:var(--rose);margin-bottom:6px;}
+.adm-login p{font-size:.8rem;color:var(--muted);margin-bottom:18px;}
+.btags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+.btag{background:rgba(200,80,80,.07);color:#c85050;padding:4px 10px;border-radius:50px;border:1px solid rgba(200,80,80,.18);font-size:.7rem;font-weight:600;display:flex;align-items:center;gap:4px;}
+.btag button{background:none;border:none;color:#c85050;cursor:pointer;font-size:.9rem;line-height:1;padding:0;-webkit-appearance:none;}
+.modal-ov{position:fixed;inset:0;background:rgba(58,40,32,.3);backdrop-filter:blur(8px);z-index:800;display:none;align-items:flex-end;}
+.modal-ov.open{display:flex;}
+.modal-box{background:var(--bg);border-top:1px solid var(--line);border-radius:24px 24px 0 0;padding:22px 26px 40px;width:100%;max-height:85svh;overflow-y:auto;}
+.modal-handle{width:36px;height:4px;background:var(--blush);opacity:.45;border-radius:2px;margin:-6px auto 14px;}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--text);margin-bottom:16px;}
+.modal-btns{display:flex;gap:8px;margin-top:14px;justify-content:flex-end;}
+
+/* ─── DESKTOP ─── */
+@media(min-width:768px){
+  nav{padding:20px 56px;}
+  .nav-links{display:flex;}
+  .hero{padding:120px 56px 90px;}
+  .sec{padding:100px 56px;}
+  footer{padding:70px 56px 44px;}
+  .rev-wrap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;}
+  .faq-layout{display:grid;grid-template-columns:320px 1fr;gap:80px;align-items:start;}
+  .svc-row{grid-template-columns:40px 1fr auto auto;gap:20px;}
+  .time-grid{grid-template-columns:repeat(5,1fr);}
+  .book-ov{flex-direction:row;justify-content:flex-end;}
+  .book-sheet{border-radius:0;border-top:none;border-left:1px solid var(--line);max-height:100svh;width:100%;max-width:480px;transform:translateX(100%);}
+  .book-ov.open .book-sheet{transform:translateX(0);}
+  .book-handle{display:none;}
+  .adm-ov{align-items:center;}
+  .adm-panel{border-radius:20px;max-height:86svh;max-width:820px;border:1px solid var(--line);}
+  .adm-handle{display:none;}
+  .modal-ov{align-items:center;}
+  .modal-box{border-radius:20px;max-width:480px;border:1px solid var(--line);}
+  .modal-handle{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Regina</div>
+  <ul class="nav-links">
+    <li><a href="#services">Услуги</a></li>
+    <li><a href="#results">До / После</a></li>
+    <li><a href="#faq">Вопросы</a></li>
+  </ul>
+  <button class="nav-cta" onclick="openBooking()">Записаться</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-circle hc1"></div>
+  <div class="hero-circle hc2"></div>
+  <div class="hero-circle hc3"></div>
+
+  <div class="hero-tag">✦ Косметолог · Новый Уренгой</div>
+
+  <div class="hero-script">Красота — это забота</div>
+
+  <h1 class="hero-h1">
+    Чистая и здоровая кожа<br>
+    без <em>лишних процедур</em>
+  </h1>
+
+  <div class="hero-line"></div>
+
+  <p class="hero-sub">
+    Индивидуальный подход и видимый результат.<br>
+    Специалист с медицинским образованием —<br>
+    у меня красиво, качественно, безопасно.
+  </p>
+
+  <div class="hero-btns">
+    <button class="btn-fill" onclick="openBooking()">Записаться на приём</button>
+    <a href="#services" class="btn-soft">Смотреть услуги</a>
+  </div>
+
+  <div class="hero-pills">
+    <span class="hero-pill">💋 Губы</span>
+    <span class="hero-pill">💉 Ботокс</span>
+    <span class="hero-pill">✨ Чистка</span>
+    <span class="hero-pill">💎 Мезотерапия</span>
+    <span class="hero-pill">🌿 Биоревитализация</span>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec alt" id="services">
+  <div class="container">
+    <span class="sec-script">Услуги</span>
+    <h2 class="sec-h">Что я предлагаю</h2>
+    <p class="sec-p">Каждая процедура подбирается индивидуально — под тип кожи и ваш запрос</p>
+    <div class="svc-list" id="servicesGrid"></div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="sec" id="results">
+  <div class="container">
+    <div class="sec-center">
+      <span class="sec-script">Результаты</span>
+      <h2 class="sec-h">До и после</h2>
+      <p class="sec-p">Реальные результаты — честно, без фильтров и обработки</p>
+    </div>
+
+    <div class="carousel-outer">
+      <div class="carousel-track" id="carTrack"></div>
+    </div>
+    <div class="car-controls">
+      <div class="car-dots" id="carDots"></div>
+      <div class="car-arrows">
+        <button class="car-arrow" onclick="carPrev()">←</button>
+        <button class="car-arrow" onclick="carNext()">→</button>
+      </div>
+    </div>
+
+    <div style="margin-top:80px">
+      <span class="sec-script">Отзывы</span>
+      <h2 class="sec-h">Клиенты говорят</h2>
+      <div class="rev-wrap">
+        <div class="rev-card">
+          <div class="rev-ava">А</div>
+          <div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-text">«Делала губы у Регины — просто восторг! Объём получился очень естественным. Дискомфорт минимальный. Обязательно вернусь!»</p>
+            <div class="rev-name">Айгерим К. · 2 недели назад</div>
+          </div>
+        </div>
+        <div class="rev-card">
+          <div class="rev-ava">М</div>
+          <div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-text">«Наконец нашла своего косметолога! Делала чистку — кожа просто дышит. Регина очень профессиональная, объясняет каждый шаг.»</p>
+            <div class="rev-name">Малика Д. · 1 месяц назад</div>
+          </div>
+        </div>
+        <div class="rev-card">
+          <div class="rev-ava">З</div>
+          <div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-text">«Ботокс делала впервые, очень боялась. Регина всё объяснила, сделала аккуратно. Результат потрясающий — лицо выглядит живым!»</p>
+            <div class="rev-name">Зарина А. · 3 недели назад</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec alt" id="faq">
+  <div class="container">
+    <div class="faq-layout">
+      <div>
+        <span class="sec-script">Вопросы</span>
+        <h2 class="sec-h">Часто задают</h2>
+        <p class="sec-p" style="margin-bottom:28px">Не нашли ответ? Напишите мне напрямую — отвечу лично и быстро.</p>
+        <a href="https://t.me/edilbaewa" target="_blank" class="btn-fill" style="text-decoration:none;display:inline-block">Написать в Telegram</a>
+      </div>
+      <div id="faqList"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">Regina</div>
+  <div class="f-sub">Косметолог с медицинским образованием</div>
+  <div class="f-city">📍 Новый Уренгой</div>
+  <ul class="f-links">
+    <li><a href="#services">Услуги</a></li>
+    <li><a href="#results">До / После</a></li>
+    <li><a href="#faq">Вопросы</a></li>
+    <li><a href="https://www.instagram.com/divaa_skinn" target="_blank">Instagram</a></li>
+    <li><a href="https://t.me/edilbaewa" target="_blank">Telegram</a></li>
+  </ul>
+  <div class="f-bottom">
+    <span>© 2025 Регина Эдильбаева</span>
+    <span class="f-admin-btn" onclick="openAdmin()">Войти в панель</span>
+  </div>
+</footer>
+
+<button class="afab" onclick="openAdmin()">⚙</button>
+
+<!-- BOOKING -->
+<div class="book-ov" id="bookOv">
+  <div class="book-bd" onclick="closeBooking()"></div>
+  <div class="book-sheet">
+    <div class="book-handle"></div>
+    <div class="book-head">
+      <div class="book-title">Записаться</div>
+      <button class="book-close" onclick="closeBooking()">×</button>
+    </div>
+    <div class="book-body">
+      <div class="steps-bar">
+        <div class="sdot active" id="sd1">1</div><div class="sline" id="sl1"></div>
+        <div class="sdot" id="sd2">2</div><div class="sline" id="sl2"></div>
+        <div class="sdot" id="sd3">3</div><div class="sline" id="sl3"></div>
+        <div class="sdot" id="sd4">4</div>
+      </div>
+      <div class="bstep active" id="bstep1">
+        <div class="bstep-title">Выберите услугу</div>
+        <div class="svc-opts" id="svcOptGrid"></div>
+        <div class="bnav"><button class="btn-nx" id="bn1" disabled onclick="goStep(2)">Далее →</button></div>
+      </div>
+      <div class="bstep" id="bstep2">
+        <div class="bstep-title">Выберите дату</div>
+        <div class="cal-nav">
+          <button class="cal-nb" onclick="prevMon()">←</button>
+          <strong id="calLabel"></strong>
+          <button class="cal-nb" onclick="nextMon()">→</button>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div class="bnav">
+          <button class="btn-bk" onclick="goStep(1)">← Назад</button>
+          <button class="btn-nx" id="bn2" disabled onclick="goStep(3)">Далее →</button>
+        </div>
+      </div>
+      <div class="bstep" id="bstep3">
+        <div class="bstep-title">Выберите время</div>
+        <div class="time-grid" id="timeGrid"></div>
+        <div class="bnav">
+          <button class="btn-bk" onclick="goStep(2)">← Назад</button>
+          <button class="btn-nx" id="bn3" disabled onclick="goStep(4)">Далее →</button>
+        </div>
+      </div>
+      <div class="bstep" id="bstep4">
+        <div class="confirm-box">
+          <div class="confirm-script">Готово!</div>
+          <p class="confirm-sub">Нажмите кнопку — откроется Telegram с готовым сообщением для подтверждения</p>
+          <div class="bsum" id="bSum"></div>
+          <a id="tgLink" href="#" target="_blank" class="tg-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.269c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.365 13.9l-2.95-.924c-.642-.196-.655-.642.136-.954l11.52-4.44c.537-.194 1.006.131.491.666z"/></svg>
+            Написать в Telegram
+          </a>
+          <div style="margin-top:14px"><button class="btn-bk" onclick="goStep(3)">← Изменить</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div class="adm-ov" id="adminOv" onclick="if(event.target===this)closeAdmin()">
+  <div class="adm-panel">
+    <div class="adm-handle"></div>
+    <div class="adm-hd">
+      <div class="adm-hd-t">Панель</div>
+      <button class="adm-cl" onclick="closeAdmin()">×</button>
+    </div>
+    <div class="adm-body" id="admBody"></div>
+  </div>
+</div>
+<div class="modal-ov" id="editMov" onclick="if(event.target===this)closeEdit()">
+  <div class="modal-box">
+    <div class="modal-handle"></div>
+    <div class="modal-title" id="editTitle">Редактировать</div>
+    <div id="editContent"></div>
+    <div class="modal-btns">
+      <button class="btn-bk" onclick="closeEdit()">Отмена</button>
+      <button class="ab" id="editSave">Сохранить</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const TG='edilbaewa',PASS='edil2025';
+const defSvc=[
+  {id:'s1',name:'Увеличение губ',desc:'Натуральный объём и чёткий контур. Гиалуроновая кислота',dur:'45 мин',price:'от 5 000 ₸'},
+  {id:'s2',name:'Ботокс',desc:'Разглаживание мимических морщин — лоб, межбровье, вокруг глаз',dur:'40 мин',price:'от 4 000 ₸'},
+  {id:'s3',name:'Контурная пластика',desc:'Коррекция скул, носогубных складок, подбородка без операций',dur:'60 мин',price:'от 7 000 ₸'},
+  {id:'s4',name:'Глубокая чистка лица',desc:'Механическая и ультразвуковая чистка. Сужение пор, ровный тон',dur:'90 мин',price:'3 500 ₸'},
+  {id:'s5',name:'Мезотерапия',desc:'Витаминные коктейли для увлажнения и омоложения',dur:'60 мин',price:'от 4 500 ₸'},
+  {id:'s6',name:'Биоревитализация',desc:'Глубокое увлажнение, восстановление упругости и эластичности',dur:'60 мин',price:'от 6 000 ₸'},
+  {id:'s7',name:'Химический пилинг',desc:'Обновление клеток, устранение пигментации',dur:'60 мин',price:'2 500 ₸'},
+  {id:'s8',name:'Комплексный уход',desc:'Очищение, питание, увлажнение и лифтинг-эффект',dur:'75 мин',price:'4 000 ₸'},
+];
+const defFaq=[
+  {id:'f1',q:'Больно ли делать уколы в губы?',a:'Перед процедурой наносится анестезирующий крем, поэтому дискомфорт минимальный. Большинство описывают ощущения как лёгкое покалывание.'},
+  {id:'f2',q:'Как долго держится результат от ботокса?',a:'Эффект сохраняется 4–6 месяцев, после чего препарат полностью выводится из организма.'},
+  {id:'f3',q:'Нужна ли подготовка перед инъекциями?',a:'За 2 недели избегайте алкоголя, аспирина и кроверазжижающих препаратов. Приходите без макияжа.'},
+  {id:'f4',q:'Что нельзя делать после чистки?',a:'48 часов: без макияжа, без сауны и горячей воды, не трогать кожу, обязательно SPF на улице.'},
+  {id:'f5',q:'Вы работаете с аллергиками?',a:'Да, но сообщите об аллергиях заранее. Проводим консультацию и тест на чувствительность.'},
+  {id:'f6',q:'Как записаться?',a:'Нажмите «Записаться» — выберите услугу, дату и время. Откроется Telegram с готовым сообщением.'},
+];
+const carData=[
+  {proc:'Губы — увеличение и коррекция',desc:'Натуральный объём, чёткий контур, без эффекта «утки»'},
+  {proc:'Ботокс — разглаживание морщин',desc:'Мимические морщины исчезают, лицо остаётся живым'},
+  {proc:'Глубокая чистка лица',desc:'Чистая кожа, суженные поры, ровный тон'},
+  {proc:'Мезотерапия — сияние кожи',desc:'Увлажнение изнутри, выравнивание тона, сияние'},
+];
+let svcs=JSON.parse(localStorage.getItem('cosm_s')||'null')||defSvc;
+let faqs=JSON.parse(localStorage.getItem('cosm_f')||'null')||defFaq;
+let blocked=JSON.parse(localStorage.getItem('cosm_b')||'[]');
+function save(){localStorage.setItem('cosm_s',JSON.stringify(svcs));localStorage.setItem('cosm_f',JSON.stringify(faqs));localStorage.setItem('cosm_b',JSON.stringify(blocked));}
+
+/* SERVICES */
+function renderSvcs(){
+  const nums=['①','②','③','④','⑤','⑥','⑦','⑧'];
+  document.getElementById('servicesGrid').innerHTML=svcs.map((s,i)=>`
+    <div class="svc-row">
+      <div class="svc-n">${nums[i]||i+1}</div>
+      <div class="svc-info"><div class="svc-nm">${s.name}</div><div class="svc-ds">${s.desc}</div></div>
+      <div class="svc-right"><div class="svc-price">${s.price}</div><div class="svc-dur">⏱ ${s.dur}</div></div>
+      <button class="svc-bk" onclick="quickBook('${s.id}')">Записаться</button>
+    </div>`).join('');
+}
+function quickBook(id){bk.svc=id;openBooking();setTimeout(()=>goStep(1),60);}
+
+/* CAROUSEL */
+let carIdx=0;
+function renderCarousel(){
+  document.getElementById('carTrack').innerHTML=carData.map(c=>`
+    <div class="ba-slide">
+      <div class="ba-imgs">
+        <div class="ba-half before">📷 Фото до<div class="btag">До</div></div>
+        <div class="ba-half after">📷 Фото после<div class="btag">После</div></div>
+      </div>
+      <div class="ba-info"><div class="ba-proc">${c.proc}</div><div class="ba-desc">${c.desc}</div></div>
+    </div>`).join('');
+  document.getElementById('carDots').innerHTML=carData.map((_,i)=>`<div class="car-dot${i===0?' active':''}" onclick="carGo(${i})"></div>`).join('');
+  carGo(0);
+}
+function carGo(n){
+  carIdx=Math.max(0,Math.min(n,carData.length-1));
+  document.getElementById('carTrack').style.transform=`translateX(-${carIdx*100}%)`;
+  document.querySelectorAll('.car-dot').forEach((d,i)=>d.classList.toggle('active',i===carIdx));
+}
+function carPrev(){carGo(carIdx-1);}
+function carNext(){carGo(carIdx+1);}
+(()=>{let sx=0;const el=document.querySelector('.carousel-outer');if(!el)return;
+  el.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;},{passive:true});
+  el.addEventListener('touchend',e=>{if(Math.abs(e.changedTouches[0].clientX-sx)>40){e.changedTouches[0].clientX-sx<0?carNext():carPrev();}},{passive:true});
+})();
+
+/* FAQ */
+function renderFaq(){
+  document.getElementById('faqList').innerHTML=faqs.map(f=>`
+    <div class="faq-item" id="fi-${f.id}">
+      <button class="faq-q" onclick="toggleFaq('${f.id}')"><span>${f.q}</span><span class="faq-ic">+</span></button>
+      <div class="faq-ans" id="fa-${f.id}"><div class="faq-ans-inner">${f.a}</div></div>
+    </div>`).join('');
+}
+function toggleFaq(id){
+  const item=document.getElementById('fi-'+id),ans=document.getElementById('fa-'+id),open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el=>{el.classList.remove('open');el.querySelector('.faq-ans').style.maxHeight=null;});
+  if(!open){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+}
+
+/* BOOKING */
+let bk={svc:null,date:null,time:null},cy,cm;
+function initCal(){const n=new Date();cy=n.getFullYear();cm=n.getMonth();}
+function openBooking(){document.getElementById('bookOv').classList.add('open');document.body.style.overflow='hidden';}
+function closeBooking(){document.getElementById('bookOv').classList.remove('open');document.body.style.overflow='';}
+function renderOpts(){
+  document.getElementById('svcOptGrid').innerHTML=svcs.map(s=>`
+    <div class="svc-opt${bk.svc===s.id?' sel':''}" onclick="selSvc('${s.id}')">
+      <div><div class="svc-opt-name">${s.name}</div><div class="svc-opt-sub">${s.dur}</div></div>
+      <div class="svc-opt-price">${s.price}</div>
+    </div>`).join('');
+  document.getElementById('bn1').disabled=!bk.svc;
+}
+function selSvc(id){bk.svc=id;renderOpts();}
+function renderCal(){
+  const mn=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+  document.getElementById('calLabel').textContent=mn[cm]+' '+cy;
+  const now=new Date(),fd=new Date(cy,cm,1).getDay(),dim=new Date(cy,cm+1,0).getDate(),off=(fd===0)?6:fd-1;
+  let h=['Пн','Вт','Ср','Чт','Пт','Сб','Вс'].map(d=>`<div class="cal-hd">${d}</div>`).join('');
+  for(let i=0;i<off;i++)h+='<div class="cal-d empty"></div>';
+  for(let d=1;d<=dim;d++){
+    const dO=new Date(cy,cm,d),past=dO<new Date(now.getFullYear(),now.getMonth(),now.getDate()),
+      today=d===now.getDate()&&cm===now.getMonth()&&cy===now.getFullYear(),
+      ds=`${cy}-${String(cm+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    let cls='cal-d';if(past)cls+=' past';if(today)cls+=' today';if(bk.date===ds)cls+=' sel';
+    h+=`<div class="${cls}" onclick="selDate('${ds}')">${d}</div>`;
+  }
+  document.getElementById('calGrid').innerHTML=h;
+  document.getElementById('bn2').disabled=!bk.date;
+}
+function selDate(ds){bk.date=ds;bk.time=null;renderCal();}
+function prevMon(){if(cm===0){cm=11;cy--;}else cm--;renderCal();}
+function nextMon(){if(cm===11){cm=0;cy++;}else cm++;renderCal();}
+function renderTime(){
+  const slots=[];for(let h=8;h<20;h++){slots.push(`${String(h).padStart(2,'0')}:00`);if(h<19)slots.push(`${String(h).padStart(2,'0')}:30`);}
+  const blk=blocked.filter(b=>b.d===bk.date).map(b=>b.t);
+  document.getElementById('timeGrid').innerHTML=slots.map(t=>`<button class="tslot${blk.includes(t)?' blocked':''}${bk.time===t?' sel':''}" onclick="selTime('${t}')" ${blk.includes(t)?'disabled':''}>${t}</button>`).join('');
+  document.getElementById('bn3').disabled=!bk.time;
+}
+function selTime(t){bk.time=t;renderTime();}
+function renderConfirm(){
+  const s=svcs.find(x=>x.id===bk.svc),dF=new Date(bk.date+'T00:00:00').toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'});
+  document.getElementById('bSum').innerHTML=`
+    <div class="sum-row"><span>Услуга</span><span>${s.name}</span></div>
+    <div class="sum-row"><span>Дата</span><span>${dF}</span></div>
+    <div class="sum-row"><span>Время</span><span>${bk.time}</span></div>
+    <div class="sum-row"><span>Стоимость</span><span>${s.price}</span></div>`;
+  document.getElementById('tgLink').href=`https://t.me/${TG}?text=${encodeURIComponent(`Здравствуйте! Хочу записаться на услугу «${s.name}» на ${dF} в ${bk.time}.`)}`;
+}
+function goStep(n){
+  for(let i=1;i<=4;i++){
+    document.getElementById('bstep'+i).classList.toggle('active',i===n);
+    const dot=document.getElementById('sd'+i);dot.classList.remove('active','done');
+    if(i<n)dot.classList.add('done');if(i===n)dot.classList.add('active');
+    if(i<4)document.getElementById('sl'+i).classList.toggle('done',i<n);
+  }
+  if(n===1)renderOpts();if(n===2)renderCal();if(n===3)renderTime();if(n===4)renderConfirm();
+  const bb=document.querySelector('.book-body');if(bb)bb.scrollTop=0;
+}
+
+/* ADMIN */
+let loggedIn=false,curTab='services';
+function openAdmin(){document.getElementById('adminOv').classList.add('open');renderAdmBody();}
+function closeAdmin(){document.getElementById('adminOv').classList.remove('open');}
+function renderAdmBody(){
+  const b=document.getElementById('admBody');
+  if(!loggedIn){b.innerHTML=`<div class="adm-login"><h3>Добро пожаловать</h3><p>Введите пароль для входа</p>
+    <div class="fg"><input type="password" class="fi" id="apwd" placeholder="Пароль" onkeydown="if(event.key==='Enter')checkPwd()"></div>
+    <button class="ab" onclick="checkPwd()">Войти</button>
+    <p id="apwdErr" style="color:#c85050;font-size:.76rem;margin-top:8px"></p></div>`;
+    setTimeout(()=>document.getElementById('apwd')?.focus(),120);}
+  else renderAdmPanel();
+}
+function checkPwd(){if(document.getElementById('apwd').value===PASS){loggedIn=true;renderAdmPanel();}else document.getElementById('apwdErr').textContent='Неверный пароль';}
+function renderAdmPanel(){
+  document.getElementById('admBody').innerHTML=`
+    <div class="adm-tabs">
+      <button class="adm-tab${curTab==='services'?' active':''}" onclick="swTab('services',this)">Услуги</button>
+      <button class="adm-tab${curTab==='faq'?' active':''}" onclick="swTab('faq',this)">Вопросы</button>
+      <button class="adm-tab${curTab==='slots'?' active':''}" onclick="swTab('slots',this)">Расписание</button>
+    </div><div id="admTC"></div>`;
+  renderTC();
+}
+function swTab(t,el){curTab=t;document.querySelectorAll('.adm-tab').forEach(x=>x.classList.remove('active'));el.classList.add('active');renderTC();}
+function genTO(){let o='';for(let h=8;h<20;h++){o+=`<option>${String(h).padStart(2,'0')}:00</option>`;if(h<19)o+=`<option>${String(h).padStart(2,'0')}:30</option>`;}return o;}
+function renderTC(){
+  const c=document.getElementById('admTC');if(!c)return;
+  if(curTab==='services'){c.innerHTML=`<div class="adm-form"><div class="adm-ft">Добавить услугу</div>
+    <div class="fg"><label class="fl">Название</label><input class="fi" id="nSN" placeholder="Название"></div>
+    <div class="fg"><label class="fl">Описание</label><input class="fi" id="nSD" placeholder="Описание"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <div class="fg"><label class="fl">Длительность</label><input class="fi" id="nSDr" placeholder="60 мин"></div>
+      <div class="fg"><label class="fl">Стоимость</label><input class="fi" id="nSP" placeholder="3 000 ₸"></div>
+    </div>
+    <button class="ab" onclick="addSvc()">Добавить</button></div>
+    ${svcs.map(s=>`<div class="adm-item"><div><div class="ai-nm">${s.name}</div><div class="ai-sb">${s.dur||''} · ${s.price}</div></div>
+      <div class="ai-acts"><button class="ab" onclick="editSvc('${s.id}')">✏️</button><button class="ab danger" onclick="delSvc('${s.id}')">🗑</button></div></div>`).join('')}`;}
+  else if(curTab==='faq'){c.innerHTML=`<div class="adm-form"><div class="adm-ft">Добавить вопрос</div>
+    <div class="fg"><label class="fl">Вопрос</label><input class="fi" id="nFQ" placeholder="Вопрос"></div>
+    <div class="fg"><label class="fl">Ответ</label><textarea class="fi fta" id="nFA" placeholder="Ответ"></textarea></div>
+    <button class="ab" onclick="addFaq()">Добавить</button></div>
+    ${faqs.map(f=>`<div class="adm-item"><div><div class="ai-nm">${f.q}</div><div class="ai-sb">${f.a.substring(0,55)}...</div></div>
+      <div class="ai-acts"><button class="ab" onclick="editFaq('${f.id}')">✏️</button><button class="ab danger" onclick="delFaq('${f.id}')">🗑</button></div></div>`).join('')}`;}
+  else{c.innerHTML=`<div class="adm-form"><div class="adm-ft">Закрыть слот</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <div class="fg"><label class="fl">Дата</label><input type="date" class="fi" id="bDate" value="${new Date().toISOString().split('T')[0]}"></div>
+      <div class="fg"><label class="fl">Время</label><select class="fi" id="bTime">${genTO()}</select></div>
+    </div><button class="ab" onclick="blockSlot()">Закрыть</button></div>
+    <div style="font-size:.68rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Закрытые слоты</div>
+    <div class="btags">${blocked.length===0?'<span style="font-size:.74rem;color:var(--muted)">Пусто</span>':''}${blocked.map((b,i)=>`<div class="btag">${b.d} ${b.t}<button onclick="unblock(${i})">×</button></div>`).join('')}</div>`;}
+}
+function addSvc(){
+  const n=document.getElementById('nSN').value.trim(),d=document.getElementById('nSD').value.trim(),
+    dr=document.getElementById('nSDr').value.trim(),p=document.getElementById('nSP').value.trim();
+  if(!n||!p)return alert('Заполните название и стоимость');
+  svcs.push({id:'s'+Date.now(),name:n,desc:d,dur:dr,price:p});save();renderSvcs();renderTC();
+}
+function delSvc(id){if(!confirm('Удалить?'))return;svcs=svcs.filter(s=>s.id!==id);save();renderSvcs();renderTC();}
+function editSvc(id){
+  const s=svcs.find(x=>x.id===id);
+  document.getElementById('editTitle').textContent='Редактировать услугу';
+  document.getElementById('editContent').innerHTML=`
+    <div class="fg"><label class="fl">Название</label><input class="fi" id="e_n" value="${s.name}"></div>
+    <div class="fg"><label class="fl">Описание</label><input class="fi" id="e_d" value="${s.desc}"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <div class="fg"><label class="fl">Длительность</label><input class="fi" id="e_dr" value="${s.dur||''}"></div>
+      <div class="fg"><label class="fl">Стоимость</label><input class="fi" id="e_p" value="${s.price}"></div>
+    </div>`;
+  document.getElementById('editSave').onclick=()=>{
+    s.name=document.getElementById('e_n').value.trim();s.desc=document.getElementById('e_d').value.trim();
+    s.dur=document.getElementById('e_dr').value.trim();s.price=document.getElementById('e_p').value.trim();
+    save();renderSvcs();renderTC();closeEdit();};
+  document.getElementById('editMov').classList.add('open');
+}
+function addFaq(){
+  const q=document.getElementById('nFQ').value.trim(),a=document.getElementById('nFA').value.trim();
+  if(!q||!a)return alert('Заполните вопрос и ответ');
+  faqs.push({id:'f'+Date.now(),q,a});save();renderFaq();renderTC();
+}
+function delFaq(id){if(!confirm('Удалить?'))return;faqs=faqs.filter(f=>f.id!==id);save();renderFaq();renderTC();}
+function editFaq(id){
+  const f=faqs.find(x=>x.id===id);
+  document.getElementById('editTitle').textContent='Редактировать вопрос';
+  document.getElementById('editContent').innerHTML=`
+    <div class="fg"><label class="fl">Вопрос</label><input class="fi" id="e_q" value="${f.q}"></div>
+    <div class="fg"><label class="fl">Ответ</label><textarea class="fi fta" id="e_a">${f.a}</textarea></div>`;
+  document.getElementById('editSave').onclick=()=>{
+    f.q=document.getElementById('e_q').value.trim();f.a=document.getElementById('e_a').value.trim();
+    save();renderFaq();renderTC();closeEdit();};
+  document.getElementById('editMov').classList.add('open');
+}
+function blockSlot(){
+  const d=document.getElementById('bDate').value,t=document.getElementById('bTime').value;
+  if(!d||!t)return;if(blocked.find(b=>b.d===d&&b.t===t))return alert('Уже закрыт');
+  blocked.push({d,t});save();renderTC();
+}
+function unblock(i){blocked.splice(i,1);save();renderTC();}
+function closeEdit(){document.getElementById('editMov').classList.remove('open');}
+
+initCal();renderSvcs();renderCarousel();renderFaq();goStep(1);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeBooking();closeAdmin();closeEdit();}});
+</script>
+</body>
+</html>
